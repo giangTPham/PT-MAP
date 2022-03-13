@@ -7,7 +7,7 @@ import random
 import re
 
 cwd = os.getcwd() 
-data_path = join(cwd,'ILSVRC2015/Data/CLS-LOC/train')
+data_path = join(cwd,'imagenet-mini/train')
 #data_path = join('/home/yuqing/phd/code/miniimagenet/images')
 savedir = './'
 dataset_list = ['base', 'val', 'novel']
