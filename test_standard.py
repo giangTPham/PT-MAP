@@ -187,7 +187,7 @@ if __name__ == '__main__':
     
     import FSLTask
     cfg = {'shot':n_shot, 'ways':n_ways, 'queries':n_queries}
-    FSLTask.loadDataSet("miniimagenet")
+    FSLTask.loadDataSet("cifar")
     FSLTask.setRandomStates(cfg)
     ndatas = FSLTask.GenerateRunSet(cfg=cfg)
     ndatas = ndatas.permute(0,2,1,3).reshape(n_runs, n_samples, -1)
