@@ -36,6 +36,7 @@ for dataset in dataset_list:
                 fnames = listdir( join(data_path, label) )
                 fname_number = [ int(re.split('_|\.', fname)[1]) for fname in fnames]
                 sorted_fnames = list(zip( *sorted(  zip(fnames, fname_number), key = lambda f_tuple: f_tuple[1] )))[0]
+                print(sorted_fnames)
                  
             fid = int(fid[-5:])-1
             fname = join( data_path,label, sorted_fnames[fid] )
