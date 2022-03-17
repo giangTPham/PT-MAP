@@ -30,7 +30,7 @@ def mixup_data(x, y, lam):
 class distLinear(nn.Module):
     def __init__(self, indim, outdim):
         super(distLinear, self).__init__()
-        self.L = nn.Linear( indim, outdim, bias = False)
+        self.L = nn.Linear(indim, outdim, bias = False)
         self.class_wise_learnable_norm = True  #See the issue#4&8 in the github 
         if self.class_wise_learnable_norm:      
             WeightNorm.apply(self.L, 'weight', dim=0) #split the weight update component to direction and norm      

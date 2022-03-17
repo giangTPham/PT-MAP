@@ -258,7 +258,7 @@ if __name__ == '__main__':
             model.cuda()
 
         if params.resume:
-            resume_file = get_resume_file(params.checkpoint_dir )        
+            resume_file = get_resume_file(params.checkpoint_dir)        
             print("resume_file" , resume_file)
             tmp = torch.load(resume_file)
             start_epoch = tmp['epoch']+1
@@ -267,14 +267,14 @@ if __name__ == '__main__':
             model.load_state_dict(state)        
 
         else:
-            resume_rotate_file_dir = params.checkpoint_dir.replace("S2M2_R","rotation")
-            resume_file = get_resume_file( resume_rotate_file_dir )        
-            print("resume_file" , resume_file)
-            tmp = torch.load(resume_file)
-            start_epoch = tmp['epoch']+1
-            print("restored epoch is" , tmp['epoch'])
-            state = tmp['state']
-            state_keys = list(state.keys())
+            # resume_rotate_file_dir = params.checkpoint_dir.replace("S2M2_R","rotation")
+            # resume_file = get_resume_file( resume_rotate_file_dir )        
+            # print("resume_file" , resume_file)
+            # tmp = torch.load(resume_file)
+            start_epoch = 1
+            # print("restored epoch is" , tmp['epoch'])
+            # state = tmp['state']
+            # state_keys = list(state.keys())
             '''
             for i, key in enumerate(state_keys):
                 if "feature." in key:
@@ -285,7 +285,7 @@ if __name__ == '__main__':
                     state.pop(key)
             '''
             
-            model.load_state_dict(state)        
+            # model.load_state_dict(state)        
     
         model = train_manifold_mixup(base_loader, base_loader_test, model, start_epoch, start_epoch+stop_epoch, params)
 
